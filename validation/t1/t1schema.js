@@ -6,14 +6,14 @@ const schema = {
         last_name:joi.string().max(100).required(),
         gebder: joi.string().valid("m", "f", "o").required(),
         email: joi.string().email().required(),
-        number: joi.number().integer.min(10000000000).message("Invalid mobile number").max(99999999999).message("Invalid mobile number").required(),
+        number: joi.number().integer().min(10000000000).message("Invalid mobile number").max(99999999999).message("Invalid mobile number").required(),
 
 
     })
 };
 
-const details = {
-    t1: res.json({
+function details (req, res){
+ res.json({
         "message": "My Rule-Validation API",
         "status": "success",
         "data":{
@@ -23,9 +23,6 @@ const details = {
             "mobile": "08109923858",
             "twitter": "@remiadebayor"
         }
-        
-
-
     })
 };
 module.exports = schema;
